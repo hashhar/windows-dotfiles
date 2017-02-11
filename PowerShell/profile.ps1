@@ -1,4 +1,7 @@
 function Add-To-Path($path) {
+    if ($path.Length -eq 0) {
+        return
+    }
     $pathSplit = $env:Path.Split(';')
     foreach ($item in $pathSplit) {
         if ($item.TrimEnd('\').Equals($path.TrimEnd('\'))) {
