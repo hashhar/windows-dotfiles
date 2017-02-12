@@ -2,14 +2,13 @@ function Add-To-Path($path) {
     if ($path.Length -eq 0) {
         return
     }
-    $pathSplit = $env:Path.Split(';')
-    foreach ($item in $pathSplit) {
+    foreach ($item in $env:Path.Split(';')) {
         if ($item.TrimEnd('\').Equals($path.TrimEnd('\'))) {
             Write-Output "Already in PATH."
             break
         }
     }
-    $env:Path.Insert(0, $path)
+    $env:Path = $env:Path.Insert(0, $path + ";")
 }
 
 function Use-SSH () {
