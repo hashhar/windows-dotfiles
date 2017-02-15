@@ -22,6 +22,7 @@ function Use-SystemPython () {
     $pythonScriptPath = $pythonPath + "\Scripts"
     Add-To-Path($pythonPath)
     Add-To-Path($pythonScriptPath)
+    $env:PYTHON = $pythonPath + "\python.exe"
     Write-Output "Using system Python2 now."
 }
 
