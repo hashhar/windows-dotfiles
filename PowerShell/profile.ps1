@@ -15,6 +15,7 @@ function Use-SSH () {
     $sshPath = $env:ProgramFiles + "\Git\usr\bin"
     Add-To-Path($sshPath)
     Start-SshAgent
+    ssh-add ~/.ssh/github_rsa
 }
 
 function Use-SystemPython () {
