@@ -15,10 +15,13 @@ function Use-SSH () {
     $sshPath = $env:ProgramFiles + "\Git\usr\bin"
     Add-To-Path($sshPath)
     Start-SshAgent
-    $keys = Get-ChildItem -Path "$env:HOME\.ssh\" -Filter "*.pub"
-    foreach ($key in $keys) {
-        ssh-add $key.FullName.TrimEnd(".pub")
-    }
+    # Replace the keyname with the keys you want to add.
+    ssh-add "$env:HOME\.ssh\id_rsa_github"
+    # Uncomment below lines to add all keys on startup (is irritating).
+    # $keys = Get-ChildItem -Path "$env:HOME\.ssh\" -Filter "*.pub"
+    # foreach ($key in $keys) {
+    #     ssh-add $key.FullName.TrimEnd(".pub")
+    # }
 }
 
 function Use-SystemPython () {
