@@ -1,0 +1,66 @@
+[user]
+	name = Ashhar Hasan
+	email = hashhar_dev@outlook.com
+	signingkey = 4CD0188E0E5784EF
+[core]
+	safecrlf = warn
+	autocrlf = input
+	excludesFile = ~/.config/git/ignore
+	attributesFile = ~/.config/git/attributes
+	# Specify a minimal vimrc for git using -u ~/.vimini
+	editor = vim -u NORC
+[commit]
+	template = ~/.config/git/commit-template
+	gpgsign = true
+[credential]
+	helper = cache
+[diff]
+	renames = copies
+	submodule = log
+	tool = vimdiff3
+	algorithm = histogram
+	wsErorrHighlight = old,new,context
+[fetch]
+	recurseSubmodules = on-demand
+	prune = true
+[format]
+	attach = true
+	from = true
+	signatureFile = ~/.config/git/format-signature
+	coverLetter = auto
+[grep]
+	lineNumber = true
+[help]
+	autocorrect = 20
+[mailinfo]
+	scissors = true
+[merge]
+	branchdesc = true
+	log = 20
+	tool = vimdiff3
+	keeptemporaries = true
+[pack]
+	threads = 0
+[push]
+	default = simple
+	recurseSubmodules = check
+[rebase]
+	missingCommitsCheck = warn
+[status]
+	submoduleSummary = true
+[alias]
+	grog = log --graph --abbrev-commit --decorate --all --format=format:\"%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(dim white) - %an%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n %C(white)%s%C(reset)\"
+	a = add --all
+	c = commit
+	st = status
+	co = checkout
+	up = pull --rebase=preserve
+	g = grep --break --heading --line-number
+	fa = fetch --all
+	p = push
+	pf = push -f
+
+[gpg]
+	program = "C:/Program Files (x86)/GnuPG/bin/gpg.exe"
+
+# vim: set list,fdm=marker,tw=120
