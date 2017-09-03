@@ -18,8 +18,4 @@ else {
 }
 
 # Install my profile file.
-if (!(Test-Path -Path "$env:HOME\Documents\WindowsPowerShell\profile.ps1")) {
-    Copy-Item .\PowerShell\profile.ps1 $profile.CurrentUserAllHosts
-} else {
-    Write-Host "It seems you already have a PowerShell profile configured."
-}
+Copy-Item .\PowerShell\profile.ps1 $profile.CurrentUserAllHosts
