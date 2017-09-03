@@ -10,3 +10,4 @@ if ( -not (($execPolicy -eq $unrestricted) -or ($execPolicy -eq $remoteSigned)))
 
 # Install Windows PowerShell profiles.
 .\install\installPSProfile.ps1
+.\install\installGitconfig.ps1

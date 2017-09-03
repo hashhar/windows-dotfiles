@@ -9,8 +9,17 @@ if ((Get-Command "git.exe" -ErrorAction SilentlyContinue) -eq $null) {
     Break
 }
 
-# Everything good? Install posh-git first.
-PowerShellGet\Install-Module posh-git -Scope CurrentUser
+if (Get-Module -ListAvailable -Name posh-git) {
+    Write-Warning "posh-git is already installed."
+}
+else {
+    # Everything good? Install posh-git first.
+    PowerShellGet\Install-Module posh-git -Scope CurrentUser
+}
 
 # Install my profile file.
-Copy-Item .\PowerShell\profile.ps1 $profile.CurrentUserAllHosts
+if (!(Test-Path -Path "$env:HOME\Documents\WindowsPowerShell\profile.ps1")) {
+    Copy-Item .\PowerShell\profile.ps1 $profile.CurrentUserAllHosts
+} else {
+    Write-Host "It seems you already have a PowerShell profile configured."
+}
