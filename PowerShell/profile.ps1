@@ -24,15 +24,6 @@ function Use-SSH () {
     # }
 }
 
-function global:prompt {
-    $realLASTEXITCODE = $LASTEXITCODE
-    Write-Host($pwd.ProviderPath) -nonewline
-    Write-VcsStatus
-    $global:LASTEXITCODE = $realLASTEXITCODE
-    Write-Host
-    return "> "
-}
-
 function Find-GitRepository {
     <#
     .SYNOPSIS
@@ -123,3 +114,4 @@ Function Read-GitRemotesWithUrl ($file) {
 }
 
 Import-Module posh-git
+$GitPromptSettings.DefaultPromptBeforeSuffix.Text = '`n'
